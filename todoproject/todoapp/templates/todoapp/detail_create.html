@@ -1,0 +1,12 @@
+{% load static %}
+<h2>Neues Todo erstellen</h2>
+<link rel="stylesheet" href="{% static 'todoapp/styles/style.css' %}" />
+
+<div class="wrapper">
+  <a href="{% url 'todoapp:index' %}">Zurück</a>
+
+  <form action="{% url 'todoapp:detail_create' %}" method="post">
+    {% csrf_token %} {{ form }}
+    <input type="submit" value="Submit" />
+  </form>
+</div>

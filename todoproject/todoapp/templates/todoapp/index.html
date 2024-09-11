@@ -7,3 +7,5 @@
 {% else %}
 <p>Keine Todos vorhanden. Alles erledigt</p>
 {% endif %}
+
+<a href="{% url 'todoapp:detail_create' %}">Neues Todo anlegen</a>

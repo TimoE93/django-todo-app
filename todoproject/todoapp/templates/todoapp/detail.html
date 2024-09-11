@@ -1,12 +1,20 @@
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'todoapp/style.css' %}" />
+<link rel="stylesheet" href="{% static 'todoapp/styles/style.css' %}" />
 
 <div class="wrapper">
-  <a href="{% url 'todoapp:index'">Zurück</a>
+  <a href="{% url 'todoapp:index' %}">Zurück</a>
 
-  <form action="{% url 'todoapp:detail' todo.id %}" method="post">
+  <form
+    action="{% url 'todoapp:detail' todo.id %}"
+    method="post"
+    id="form-detail"
+  >
     {% csrf_token %} {{ form }}
     <input type="submit" value="Submit" />
+    <input type="submit" value="Speichern" id="save-btn" />
+    <p id="save-successful" class="hidden">Erfolgreich gespeichert</p>
   </form>
 </div>
+
+<script src="{% static 'todoapp/scripts/detail.js' %}"></script>
