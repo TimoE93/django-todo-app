@@ -1,0 +1,9 @@
+{% if todos %}
+<ul>
+  {% for todo in todos %}
+  <li><a href="{% url 'todoapp:detail' todo.id %}">{{ todo.title }}</a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>Keine Todos vorhanden. Alles erledigt</p>
+{% endif %}
