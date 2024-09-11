@@ -12,13 +12,10 @@ async function sendBtnAction(event) {
       method: 'POST',
       body: formData,
     });
-    console.log(await response.json());
     saveSuccessful.classList.remove('hidden');
   } catch (e) {
     console.error(e);
   }
-
-  console.log('clicked');
 }
 
 saveBtn.addEventListener('click', sendBtnAction);

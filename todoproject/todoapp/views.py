@@ -26,7 +26,6 @@ class Detail(View):
         todo = get_object_or_404(Todo, pk=todo_id)
         form = self.form_class(instance=todo)
         return render(request, self.template_name, {"todo": todo, "form": form})
-
     
     def post(self, request, todo_id):
         todo = get_object_or_404(Todo, pk=todo_id)
@@ -36,8 +35,6 @@ class Detail(View):
 
         return JsonResponse({"state": "success"})
        # return redirect(reverse('todoapp:index'))
-
-
 
 class DetailCreate(View):
     form_class = TodoForm
