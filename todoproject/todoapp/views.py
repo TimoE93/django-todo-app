@@ -11,9 +11,7 @@ from .forms import TodoForm
 def index(request):
     todos = Todo.objects.all()
     output = ", ".join([todo.title for todo in todos])
-    context = {
-        "todos": todos
-    }
+    context = {"todos": todos}
 
     return render(request, "todoapp/index.html", context)
 
@@ -26,7 +24,7 @@ class Detail(View):
         todo = get_object_or_404(Todo, pk=todo_id)
         form = self.form_class(instance=todo)
         return render(request, self.template_name, {"todo": todo, "form": form})
-    
+
     def post(self, request, todo_id):
         todo = get_object_or_404(Todo, pk=todo_id)
         form = self.form_class(request.POST, instance=todo)
@@ -34,7 +32,9 @@ class Detail(View):
         form.save()
 
         return JsonResponse({"state": "success"})
-       # return redirect(reverse('todoapp:index'))
+
+    # return redirect(reverse('todoapp:index'))
+
 
 class DetailCreate(View):
     form_class = TodoForm
@@ -44,10 +44,9 @@ class DetailCreate(View):
         form = self.form_class()
         return render(request, self.template_name, {"form": form})
 
-    
     def post(self, request):
         form = self.form_class(request.POST)
 
         form.save()
 
-        return redirect(reverse('todoapp:index'))
+        return redirect(reverse("todoapp:index"))
