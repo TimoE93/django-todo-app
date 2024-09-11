@@ -1,0 +1,14 @@
+body {
+  background-color: lightblue;
+}
+
+form label {
+  display: inline-block;
+  width: 100px;
+}
+
+form > div {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}

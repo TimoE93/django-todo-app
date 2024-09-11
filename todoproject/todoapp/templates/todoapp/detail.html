@@ -1,6 +1,12 @@
-{{todo}}
+{% load static %}
 
-<form action="{% url 'todoapp:detail' todo.id %}" method="post">
-  {% csrf_token %} {{ form }}
-  <input type="submit" value="Submit" />
-</form>
+<link rel="stylesheet" href="{% static 'todoapp/style.css' %}" />
+
+<div class="wrapper">
+  <a href="{% url 'todoapp:index'">Zurück</a>
+
+  <form action="{% url 'todoapp:detail' todo.id %}" method="post">
+    {% csrf_token %} {{ form }}
+    <input type="submit" value="Submit" />
+  </form>
+</div>
